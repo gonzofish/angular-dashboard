@@ -6,7 +6,7 @@ A dynamic dashboard framework for Angular 2+ projects.
 - [Dashboard Component](#dashboard-component)
 - [Component Registry](#component-registry)
 - [Interfaces](#interfaces)
-    - [AdInput](#ad-input)
+    - [Angular Dashboard Input](#ad-input)
     - [Component Registration](#component-registration)
     - [Dashboard Event](#dashboard-event)
 - [Setup Configuration](#setup-configuration)
