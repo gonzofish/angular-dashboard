@@ -2,7 +2,16 @@
 
 A dynamic dashboard framework for Angular 2+ projects.
 
-## Usage
+- [Usage](#usage)
+- [Dashboard Component](#dashboard-component)
+- [Component Registry](#component-registry)
+- [Interfaces](#interfaces)
+    - [AdInput](#ad-input)
+    - [Component Registration](#component-registration)
+    - [Dashboard Event](#dashboard-event)
+- [Setup Configuration](#setup-configuration)
+
+## <a id="usage"></a>Usage
 
 1. Install using NPM or Yarn:
 
@@ -102,7 +111,38 @@ Method|Purpose
 
 ## <a id="interfaces"></a>Interfaces
 
-### Component Registration
+- [Angular Dashboard Input](#ad-input)
+- [Component Registration](#component-registration)
+- [Dashboard Event](#dashboard-event)
+
+### <a id="ad-input"></a>Angular Dashboard Input
+
+Interface name: `AdInput`
+
+```typescript
+{
+    attribute: string;
+    dataAttribute?: string;
+    value?: any;
+}
+```
+
+`attribute` is the input name. Where, in an HTML template, you would use:
+
+```html
+<my-cmp [someAttr]="data.some[2].stuff" anotherAttr="pizza"></my-cmp>
+```
+
+Using `AdInput`, you would specify an `attribute` of `someAttr` and another
+with `anotherAttr`.
+
+For straight values, use the `value` attribute. However, for dynamic values,
+pulled in from the data passed in through [`ad-dashboard`](#ad-dashboard),
+use a dot-notation. So for `someAttr` in the example above, if `data` was
+provided to [`ad-dashboard`](#ad-dashboard), the `dataAttribute` would be
+`'some.2.stuff'`.
+
+### <a id="component-registration"></a>Component Registration
 
 Interface name: `ComponentRegistration`
 
@@ -135,35 +175,7 @@ You provide `myOutput` as part of the `outputs` attribute of a
 component `id`, the `@Output` that fired, and any data that was emitted
 through the [`ad-dashboard`](#ad-dashboard)'s `(eventFired)` output.
 
-### Angular Dashboard Input
-
-Interface name: `AdInput`
-
-```typescript
-{
-    attribute: string;
-    dataAttribute?: string;
-    value?: any;
-}
-```
-
-`attribute` is the input name. Where, in an HTML template, you would use:
-
-```html
-<my-cmp [someAttr]="data.some[2].stuff" anotherAttr="pizza"></my-cmp>
-```
-
-Using `AdInput`, you would specify an `attribute` of `someAttr` and another
-with `anotherAttr`.
-
-For straight values, use the `value` attribute. However, for dynamic values,
-pulled in from the data passed in through [`ad-dashboard`](#ad-dashboard),
-use a dot-notation. So for `someAttr` in the example above, if `data` was
-provided to [`ad-dashboard`](#ad-dashboard), the `dataAttribute` would be
-`'some.2.stuff'`.
-
-
-### Dashboard Event
+### <a id="dashboard-event"></a>Dashboard Event
 
 Interface name: `DashboardEvent`
 
