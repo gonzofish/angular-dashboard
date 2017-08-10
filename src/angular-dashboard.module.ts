@@ -11,6 +11,7 @@ import { AdPaneComponent } from './ad-pane/ad-pane.component';
 
 import { ComponentService } from './services/component.service';
 import { ComponentRegistryService } from './services/component-registry.service';
+import { SetupService } from './services/setup.service';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { ComponentRegistryService } from './services/component-registry.service'
         CommonModule
     ],
     providers: [
-        ComponentService
+        ComponentService,
+        SetupService
     ]
 })
 export class AngularDashboardModule {

@@ -4,7 +4,10 @@ import {
     ComponentFixture,
     TestBed
 } from '@angular/core/testing';
+
 import { AdDashboardComponent } from './ad-dashboard.component';
+import { ComponentService } from "../services/component.service";
+import { SetupService } from '../services/setup.service';
 
 describe('AdDashboardComponent', () => {
     let component: AdDashboardComponent;
@@ -14,6 +17,10 @@ describe('AdDashboardComponent', () => {
         TestBed.configureTestingModule({
             declarations: [
                 AdDashboardComponent
+            ],
+            providers: [
+                ComponentService,
+                SetupService
             ]
         });
         TestBed.compileComponents();
