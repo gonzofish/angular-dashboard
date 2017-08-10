@@ -5,11 +5,14 @@ A dynamic dashboard framework for Angular 2+ projects.
 - [Usage](#usage)
 - [Dashboard Component](#dashboard-component)
 - [Component Registry](#component-registry)
+- [Setup Configuration](#setup-configuration)
 - [Interfaces](#interfaces)
     - [Angular Dashboard Input](#ad-input)
     - [Component Registration](#component-registration)
     - [Dashboard Event](#dashboard-event)
-- [Setup Configuration](#setup-configuration)
+    - [Dashboard Layout](#dashboard-layout)
+    - [Dashboard Pane](#dashboard-pane)
+    - [Layout Orientation](#layout-orientation)
 
 ## <a id="usage"></a>Usage
 
@@ -109,11 +112,18 @@ Method|Purpose
 `bulkRegister(components: Array<ComponentRegistration>)`|Allows the consumer to register a list of components, instead of individually registering them
 `register(component: ComponentRegistration)`|Register a component with Angular Dashboard
 
+## <a id="setup-configuration"></a>Setup Configuration
+
+> Coming soon
+
 ## <a id="interfaces"></a>Interfaces
 
 - [Angular Dashboard Input](#ad-input)
 - [Component Registration](#component-registration)
 - [Dashboard Event](#dashboard-event)
+- [Dashboard Layout](#dashboard-layout)
+- [Dashboard Pane](#dashboard-pane)
+- [Layout Orientation](#layout-orientation)
 
 ### <a id="ad-input"></a>Angular Dashboard Input
 
@@ -191,6 +201,38 @@ Interface name: `DashboardEvent`
 event is provided by `eventName` and, any data the event fired is provided
 via the `data` attribute.
 
-## <a id="setup-configuration"></a>Setup Configuration
+### <a id="dashboard-layout"></a>Dashboard Layout
 
-> Coming soon
+Interface name: `DashboardLayout`
+
+```typescript
+{
+    layout: LayoutOrientation;
+    panes: Array<DashboardLayout|DashboardPane>;
+}
+```
+
+### <a id="dashboard-pane"></a>Dashboard Pane
+
+Interface name: `DasboardPane`
+
+```typescript
+{
+    component: string;
+    inputs?: Array<AdInput>;
+    outputs?: Array<string>;
+    size?: string;
+    title?: string;
+}
+```
+
+### <a id="layout-orientation"></a>Layout Orientation
+
+Enum name: `LayoutOrientation`
+
+```typescript
+{
+    ROWS,
+    COLUMNS
+}
+```

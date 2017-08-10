@@ -5,7 +5,10 @@ export interface DashboardLayout {
     panes: Array<DashboardLayout|DashboardPane>;
 }
 
-export type LayoutOrientation = 'rows'|'columns';
+export enum LayoutOrientation {
+    ROWS,
+    COLUMNS
+};
 
 export interface DashboardPane {
     component: string;
