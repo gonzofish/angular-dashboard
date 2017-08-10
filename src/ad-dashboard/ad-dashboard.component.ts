@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 
 import { DashboardEvent } from '../interfaces/dashboard-event.interface';
+import { DashboardLayout } from '../interfaces/dashboard-layout.interface';
 import { SetupService } from '../services/setup.service';
 
 @Component({
@@ -17,7 +18,7 @@ import { SetupService } from '../services/setup.service';
 })
 export class AdDashboardComponent implements OnChanges {
     @Input('data') data: any;
-    @Input('setup') setup: any;
+    @Input('setup') setup: DashboardLayout;
     @Output('dashboardEvent') dashboardEvent = new EventEmitter<DashboardEvent>();
 
     constructor(private _setupService: SetupService) {}
