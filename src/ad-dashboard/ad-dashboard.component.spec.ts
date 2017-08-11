@@ -6,7 +6,7 @@ import {
 } from '@angular/core/testing';
 
 import { AdDashboardComponent } from './ad-dashboard.component';
-import { ComponentService } from "../services/component.service";
+import { ComponentService } from '../services/component.service';
 import { SetupService } from '../services/setup.service';
 
 describe('AdDashboardComponent', () => {

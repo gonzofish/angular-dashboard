@@ -1,0 +1,8 @@
+<ng-container *ngFor="let pane of layout.panes" [ngSwitch]="!!pane.layout">
+    <ad-layout [data]="data"
+        [layout]="pane"
+        (dashboardEvent)="onDashboardEvent($event)"></ad-layout>
+    <ad-pane [data]="data"
+        [pane]="pane"
+        (dashboardEvent)="onDashboardEvent($event)"></ad-pane>
+</ng-container>

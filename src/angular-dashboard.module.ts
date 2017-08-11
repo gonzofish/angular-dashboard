@@ -7,16 +7,19 @@ import {
 
 import { AdContainerComponent } from './ad-container/ad-container.component';
 import { AdDashboardComponent } from './ad-dashboard/ad-dashboard.component';
+import { AdLayoutComponent } from './ad-layout/ad-layout.component';
 import { AdPaneComponent } from './ad-pane/ad-pane.component';
+
+import { AdComponentDirective } from './directives/ad-component.directive';
 
 import { ComponentService } from './services/component.service';
 import { ComponentRegistryService } from './services/component-registry.service';
-import { SetupService } from './services/setup.service';
 
 @NgModule({
     declarations: [
-        AdPaneComponent,
+        AdComponentDirective,
         AdDashboardComponent,
+        AdLayoutComponent,
         AdPaneComponent
     ],
     exports: [
@@ -26,8 +29,7 @@ import { SetupService } from './services/setup.service';
         CommonModule
     ],
     providers: [
-        ComponentService,
-        SetupService
+        ComponentService
     ]
 })
 export class AngularDashboardModule {
