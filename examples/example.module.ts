@@ -1,16 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {
+    AngularDashboardModule,
+    AdPaneBodyComponent,
+    AdPaneTitleComponent
+} from '../index';
+
 import { ExampleComponent } from './example.component';
-import { AngularDashboardModule } from '../index';
+import { ExCmpComponent } from './ex-cmp/ex-cmp.component';
 
 @NgModule({
     declarations: [
-        ExampleComponent
+        AdPaneBodyComponent,
+        AdPaneTitleComponent,
+        ExampleComponent,
+        ExCmpComponent
     ],
     imports: [
         BrowserModule,
-        AngularDashboardModule
+        AngularDashboardModule.withComponents([
+            ExCmpComponent
+        ])
     ],
     providers: [],
     bootstrap: [ExampleComponent]

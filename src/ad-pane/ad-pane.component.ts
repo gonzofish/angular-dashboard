@@ -3,7 +3,7 @@ import {
     ComponentFactoryResolver,
     EventEmitter,
     Input,
-    AfterViewInit,
+    OnInit,
     Output,
     ViewChild
 } from '@angular/core';
@@ -20,7 +20,7 @@ import { ComponentService } from '../services/component.service';
     styleUrls: ['./ad-pane.component.scss'],
     templateUrl: './ad-pane.component.html'
 })
-export class AdPaneComponent implements AfterViewInit {
+export class AdPaneComponent implements OnInit {
     @Input('data') data: any;
     @Input('pane') pane: DashboardPane;
     @Output('dashboardEvent') dashboardEvent = new EventEmitter<DashboardEvent>();
@@ -31,23 +31,25 @@ export class AdPaneComponent implements AfterViewInit {
         private _componentService: ComponentService
     ) {}
 
-    ngAfterViewInit() {
-        const { component, outputs, inputs } = this.pane;
+    ngOnInit() {
+        const { component } = this.pane;
         const containerRef = this.adComponent.viewContainerRef;
         const registration = this._componentService.select(this.pane.component);
         const factory = this._componentResolver
             .resolveComponentFactory(registration.component);
+        const inputs = [].concat(registration.inputs || [], this.pane.inputs || []);
+        const outputs = [].concat(registration.outputs || [], this.pane.outputs || []);
         let componentRef;
 
         containerRef.clear();
         componentRef = containerRef.createComponent(factory);
 
-        (inputs || []).forEach((input) => {
-            componentRef[input.attribute] = this._pickData(input.dataAttribute);
-        });
+        inputs.forEach((input) =>
+            componentRef.instance[input.attribute] = this._pickData(input.dataAttribute)
+        );
 
-        (outputs || []).forEach((output) => {
-            componentRef[output] = (data: any) =>
+        outputs.forEach((output) => {
+            componentRef.instance[output] = (data: any) =>
                 this._onComponentEvent(output, data);
         });
     }
@@ -55,9 +57,10 @@ export class AdPaneComponent implements AfterViewInit {
     private _pickData(dataAttribute: string) {
         const attributes = dataAttribute.split('.');
 
-        return attributes.reduce((data, attribute) => {
-            return data[attribute];
-        }, this.data);
+        return attributes.reduce(
+            (data, attribute) => data[attribute],
+            this.data
+        );
     }
 
     private _onComponentEvent(event: string, data: any) {

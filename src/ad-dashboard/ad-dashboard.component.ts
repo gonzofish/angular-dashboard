@@ -15,14 +15,10 @@ import { DashboardLayout } from '../interfaces/dashboard-layout.interface';
     styleUrls: ['./ad-dashboard.component.scss'],
     templateUrl: './ad-dashboard.component.html'
 })
-export class AdDashboardComponent implements OnChanges {
+export class AdDashboardComponent {
     @Input('data') data: any;
     @Input('setup') setup: DashboardLayout;
     @Output('dashboardEvent') dashboardEvent = new EventEmitter<DashboardEvent>();
 
     constructor() {}
-
-    ngOnChanges(changes: SimpleChanges) {
-
-    }
 }
