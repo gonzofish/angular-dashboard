@@ -7,7 +7,6 @@ import {
 
 import { AdDashboardComponent } from './ad-dashboard.component';
 import { ComponentService } from '../services/component.service';
-import { SetupService } from '../services/setup.service';
 
 describe('AdDashboardComponent', () => {
     let component: AdDashboardComponent;
@@ -19,8 +18,7 @@ describe('AdDashboardComponent', () => {
                 AdDashboardComponent
             ],
             providers: [
-                ComponentService,
-                SetupService
+                ComponentService
             ]
         });
         TestBed.compileComponents();
