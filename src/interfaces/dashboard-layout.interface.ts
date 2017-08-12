@@ -3,6 +3,7 @@ import { AdInput } from './ad-input.interface';
 export interface DashboardLayout {
     layout: LayoutOrientation;
     panes: Array<DashboardLayout|DashboardPane>;
+    size?: string;
 }
 
 export enum LayoutOrientation {

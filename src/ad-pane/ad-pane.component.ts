@@ -2,6 +2,7 @@ import {
     Component,
     ComponentFactoryResolver,
     EventEmitter,
+    HostBinding,
     Input,
     OnInit,
     Output,
@@ -10,7 +11,8 @@ import {
 
 import {
     DashboardEvent,
-    DashboardPane
+    DashboardPane,
+    LayoutOrientation
 } from '../interfaces';
 import { AdComponentDirective } from '../directives/ad-component.directive';
 import { ComponentService } from '../services/component.service';
@@ -22,9 +24,13 @@ import { ComponentService } from '../services/component.service';
 })
 export class AdPaneComponent implements OnInit {
     @Input('data') data: any;
+    @Input('layout') layout: LayoutOrientation = LayoutOrientation.ROWS;
     @Input('pane') pane: DashboardPane;
     @Output('dashboardEvent') dashboardEvent = new EventEmitter<DashboardEvent>();
     @ViewChild(AdComponentDirective) adComponent: AdComponentDirective;
+
+    @HostBinding('style.height') height = '100%';
+    @HostBinding('style.width') width = '100%';
 
     constructor(
         private _componentResolver: ComponentFactoryResolver,
@@ -52,6 +58,14 @@ export class AdPaneComponent implements OnInit {
             componentRef.instance[output] = (data: any) =>
                 this._onComponentEvent(output, data);
         });
+
+        if (this.pane.size) {
+            if (this.layout === LayoutOrientation.ROWS) {
+                this.height = this.pane.size;
+            } else {
+                this.width = this.pane.size;
+            }
+        }
     }
 
     private _pickData(dataAttribute: string) {

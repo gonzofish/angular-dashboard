@@ -31,13 +31,29 @@ export class ExampleComponent {
         ]
     };
     setup = {
-        layout: LayoutOrientation.ROWS,
+        layout: LayoutOrientation.COLUMNS,
         panes: [
             {
-                component: 'ex-cmp'
+                component: 'ex-cmp',
+                size: '25%'
+            },
+            {
+                layout: LayoutOrientation.ROWS,
+                panes: [
+                    {
+                        component: 'ex-cmp',
+                        inputs: {
+                            attribute: 'store',
+                            dataAttribute: 'restaurants.0'
+                        }
+                    },
+                    {
+                        component: 'ex-cmp'
+                    }
+                ]
             }
         ]
-    }
+    };
 
     constructor(private _registryService: ComponentRegistryService) {
         _registryService.bulkRegister(
