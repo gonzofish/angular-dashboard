@@ -1,1 +1,7 @@
-<ng-template adComponent></ng-template>
+<div class="title" *ngIf="title">
+    {{ title }}
+    <button (click)="close()">
+        X
+    </button>
+</div>
+<ng-content select=".pane-body"></ng-content>

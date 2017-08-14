@@ -3,9 +3,9 @@
         [data]="data"
         [layout]="pane"
         (dashboardEvent)="onDashboardEvent($event)"></ad-layout>
-    <ad-pane *ngSwitchDefault
+    <ad-pane-container *ngSwitchDefault
         [data]="data"
         [layout]="layout.layout"
         [pane]="pane"
-        (dashboardEvent)="onDashboardEvent($event)"></ad-pane>
+        (dashboardEvent)="onDashboardEvent($event)"></ad-pane-container>
 </ng-container>

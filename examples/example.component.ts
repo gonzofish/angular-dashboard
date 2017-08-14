@@ -35,20 +35,34 @@ export class ExampleComponent {
         panes: [
             {
                 component: 'ex-cmp',
-                size: '25%'
+                size: '25%',
+                title: 'Tall Joe'
             },
             {
                 layout: LayoutOrientation.ROWS,
                 panes: [
                     {
-                        component: 'ex-cmp',
-                        inputs: {
-                            attribute: 'store',
-                            dataAttribute: 'restaurants.0'
-                        }
+                        layout: LayoutOrientation.COLUMNS,
+                        panes: [
+                            {
+                                component: 'ex-cmp',
+                                inputs: {
+                                    attribute: 'store',
+                                    dataAttribute: 'restaurants.0.name'
+                                }
+                            },
+                            {
+                                component: 'ex-cmp',
+                                inputs: {
+                                    attribute: 'store',
+                                    dataAttribute: ''
+                                }
+                            }
+                        ]
                     },
                     {
-                        component: 'ex-cmp'
+                        component: 'ex-cmp',
+                        title: 'Short Joe'
                     }
                 ]
             }

@@ -10,6 +10,7 @@ import {
 })
 export class ExCmpComponent {
     @Input('store') store: any;
+    @Input('title') title: string;
 
     constructor() {}
 

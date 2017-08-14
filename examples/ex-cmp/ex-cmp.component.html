@@ -1,3 +1,5 @@
-<ad-pane-body>
-    <pre>{{ store | json }}</pre>
-</ad-pane-body>
+<ad-pane [title]="title">
+    <div class="pane-body">
+        <pre>{{ store | json }}</pre>
+    </div>
+</ad-pane>

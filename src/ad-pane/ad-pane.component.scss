@@ -1,4 +1,25 @@
-:host {
-    display: flex;
+$gray: rgba(0, 0, 0, 0.25);
 
+:host {
+    background-color: white;
+    border: 2px solid $gray;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+
+    .title {
+        background-color: $gray;
+        display: flex;
+        flex-direction: row;
+        font-weight: bold;
+        justify-content: space-between;
+        padding: 5px;
+        padding-right: 0;
+
+        .spacer {
+            flex: 1 0 auto;
+        }
+    }
 }

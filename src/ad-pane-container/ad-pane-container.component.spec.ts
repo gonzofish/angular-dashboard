@@ -4,27 +4,27 @@ import {
     ComponentFixture,
     TestBed
 } from '@angular/core/testing';
-import { AdContainerComponent } from './ad-container.component';
+import { AdPaneContainerComponent } from './ad-pane-container.component';
 
-describe('AdContainerComponent', () => {
-    let component: AdContainerComponent;
-    let fixture: ComponentFixture<AdContainerComponent>;
+describe('AdPaneContainerComponent', () => {
+    let component: AdPaneContainerComponent;
+    let fixture: ComponentFixture<AdPaneContainerComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [
-                AdContainerComponent
+                AdPaneContainerComponent
             ]
         });
         TestBed.compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(AdContainerComponent);
+        fixture = TestBed.createComponent(AdPaneContainerComponent);
         component = fixture.componentInstance;
     });
 
-    it('should create the ad-container', () => {
+    it('should create the ad-pane', () => {
         expect(component).toBeTruthy();
     });
 });

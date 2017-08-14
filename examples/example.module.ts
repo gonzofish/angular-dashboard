@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 
 import {
     AngularDashboardModule,
-    AdPaneBodyComponent,
-    AdPaneTitleComponent
+    AdPaneComponent
 } from '../index';
 
 import { ExampleComponent } from './example.component';
@@ -12,8 +11,7 @@ import { ExCmpComponent } from './ex-cmp/ex-cmp.component';
 
 @NgModule({
     declarations: [
-        AdPaneBodyComponent,
-        AdPaneTitleComponent,
+        AdPaneComponent,
         ExampleComponent,
         ExCmpComponent
     ],
